@@ -10,3 +10,5 @@ echo "Caching routes..."
 php artisan route:cache
 
 php artisan key-generate --show
+
+ls
