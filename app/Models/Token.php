@@ -15,12 +15,12 @@ class Token extends Model
     private $login;
     private $senha;
 
-    public function setLoginAttribute($login): void
+    public function setLoginAttribute($login)
     {
         $this->login = $login;
     }
 
-    public function setSenhaAttribute($senha): void
+    public function setSenhaAttribute($senha)
     {
         $credencial = Credencial::where("login", $this->login)->first();
         if (!$credencial) {
@@ -31,7 +31,7 @@ class Token extends Model
         }
     }
 
-    public function setTokenAttribute($token): void
+    public function setTokenAttribute($token)
     {
         $this->attributes["valor"] = Hash::make($token);
         $this->attributes["valido"] = true;

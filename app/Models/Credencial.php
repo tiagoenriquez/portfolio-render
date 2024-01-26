@@ -13,7 +13,7 @@ class Credencial extends Model
     
     protected $fillable = ["login", "senha", "confirmacao"];
 
-    public function setConfirmacaoAttribute(string $confirmacao): void
+    public function setConfirmacaoAttribute(string $confirmacao)
     {
         $senha = $this->attributes["senha"];
         if ($senha === $confirmacao) {

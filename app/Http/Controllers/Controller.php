@@ -13,7 +13,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    function validarToken(string $token): RedirectResponse
+    function validarToken(string $token)
     {
         $tokenCriptografado = Token::first();
         if (!Hash::check($token, $tokenCriptografado->valor)) {

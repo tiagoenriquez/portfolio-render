@@ -12,7 +12,7 @@ class Projeto extends Model
 
     protected $fillable = ["nome", "descricao", "url", "repositorio", "imagem"];
 
-    public function setImagemAttribute(UploadedFile $imagem): void
+    public function setImagemAttribute(UploadedFile $imagem)
     {
         $extensao = $imagem->getClientOriginalExtension();
         $nomeDaImagem = md5($imagem->getClientOriginalName() . strtotime("now")) . "." . $extensao;

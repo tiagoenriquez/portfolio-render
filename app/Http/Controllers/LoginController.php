@@ -18,14 +18,14 @@ class LoginController extends Controller
         $this->projetoController = new ProjetoController();
     }
 
-    function deslogar(string $token): RedirectResponse
+    function deslogar(string $token)
     {
         $this->validarToken($token);
         $this->excluir();
         return redirect()->route("principal");
     }
 
-    function logar(Request $request): RedirectResponse
+    function logar(Request $request)
     {
         try {
             $this->excluir();
@@ -39,7 +39,7 @@ class LoginController extends Controller
         }
     }
 
-    function mostrarFormulario(): View | RedirectResponse
+    function mostrarFormulario()
     {
         $credenciais = Credencial::all()->toArray();
         if (!empty($credenciais)) {
@@ -49,7 +49,7 @@ class LoginController extends Controller
         }
     }
 
-    private function excluir(): void
+    private function excluir()
     {
         $token = Token::first();
         if ($token) {

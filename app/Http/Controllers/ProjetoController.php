@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 
 class ProjetoController extends Controller
 {
-    function ameacar(string $token, int $id): View | RedirectResponse
+    function ameacar(string $token, int $id)
     {
         $this->validarToken($token);
         $projeto = Projeto::findOrFail($id);
@@ -22,7 +22,7 @@ class ProjetoController extends Controller
         ]);
     }
 
-    function atualizar(string $token, int $id, Request $request): RedirectResponse
+    function atualizar(string $token, int $id, Request $request)
     {
         try {
             $this->validarToken($token);
@@ -35,13 +35,13 @@ class ProjetoController extends Controller
         }
     }
 
-    function cadastrar(string $token): View
+    function cadastrar(string $token)
     {
         $this->validarToken($token);
         return view("projeto.cadastro", ["token" => $token]);
     }
 
-    function editar(string $token, int $id): View
+    function editar(string $token, int $id)
     {
         $this->validarToken($token);
         $projeto = Projeto::findOrFail($id);
@@ -51,7 +51,7 @@ class ProjetoController extends Controller
         ]);
     }
 
-    function excluir(string $token, int $id): RedirectResponse
+    function excluir(string $token, int $id)
     {
         try {
             $this->validarToken($token);
@@ -64,7 +64,7 @@ class ProjetoController extends Controller
         }
     }
 
-    function inserir(string $token, Request $request): RedirectResponse
+    function inserir(string $token, Request $request)
     {
         try {
             $this->validarToken($token);
@@ -76,7 +76,7 @@ class ProjetoController extends Controller
         }
     }
 
-    function listar(): View
+    function listar()
     {
         try {
             return view("welcome", ["projetos" => Projeto::all()]);
@@ -85,7 +85,7 @@ class ProjetoController extends Controller
         }
     }
 
-    function listarAposLogado(string $token): View
+    function listarAposLogado(string $token)
     {
         $this->validarToken($token);
         return view("projeto.lista", [
@@ -94,7 +94,7 @@ class ProjetoController extends Controller
         ]);
     }
 
-    function mostrar(string $slug): View | RedirectResponse
+    function mostrar(string $slug)
     {
         try {
             $projetos = Projeto::all();
@@ -114,7 +114,7 @@ class ProjetoController extends Controller
         }
     }
 
-    private function limparArquivos(): void
+    private function limparArquivos()
     {
         $imagensNaPasta = File::files(public_path("images"));
         $urlsDeImagens = Projeto::pluck("url_da_imagem")->toArray();

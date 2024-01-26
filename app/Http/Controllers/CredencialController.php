@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class CredencialController extends Controller
 {
-    function atualizar(string $token, Request $request): RedirectResponse
+    function atualizar(string $token, Request $request)
     {
         try {
             $this->validarToken($token);
@@ -22,7 +22,7 @@ class CredencialController extends Controller
         }
     }
 
-    function cadastrar(): View | RedirectResponse
+    function cadastrar()
     {
         $credencial = Credencial::all()->toArray();
         if (empty($credencial)) {
@@ -32,7 +32,7 @@ class CredencialController extends Controller
         }
     }
 
-    function editar(string $token): View
+    function editar(string $token)
     {
         $this->validarToken($token);
         $credencial = Credencial::first();
@@ -42,7 +42,7 @@ class CredencialController extends Controller
         ]);
     }
 
-    function inserir(Request $request): RedirectResponse
+    function inserir(Request $request)
     {
         try {
             $credencial = Credencial::create($request->except("_token"));
