@@ -11,6 +11,3 @@ php artisan config:cache
 
 echo "Caching routes..."
 php artisan route:cache
-
-echo "exibindo chave"
-php artisan key:generate --show
