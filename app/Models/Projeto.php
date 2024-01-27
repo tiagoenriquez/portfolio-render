@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Projeto extends Model
 {
-    use HasFactory;
-
     protected $fillable = ["nome", "descricao", "url", "repositorio", "imagem"];
 
     public function setImagemAttribute(UploadedFile $imagem)

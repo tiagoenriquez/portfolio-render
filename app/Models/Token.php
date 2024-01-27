@@ -3,14 +3,11 @@
 namespace App\Models;
 
 use Exception;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 
 class Token extends Model
 {
-    use HasFactory;
-
     protected $fillable = ["login", "senha", "_token"];
     private $login;
     private $senha;
